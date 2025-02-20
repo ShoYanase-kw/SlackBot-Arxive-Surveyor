@@ -1,0 +1,7 @@
+dotenv
+loguru
+pyyaml
+
+slack_bolt
+
+arxiv==0.5.1

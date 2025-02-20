@@ -1,0 +1,10 @@
+services:
+  bot:
+    container_name: surveyor
+    build: 
+      context: .
+      dockerfile: etc/docker/Dockerfile
+    volumes:
+      - .:/app
+    tty: true
+    env_file: etc/.env

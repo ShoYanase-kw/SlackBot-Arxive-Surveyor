@@ -1,0 +1,15 @@
+.DS_Store
+.env
+index.json
+.idea/
+.chroma/
+database.db
+tmp.*
+scripts/azure/settings.json
+
+lib/
+**/tmp
+**/work
+**/outputs
+**/__pycache__
+**/mock

@@ -1,0 +1,23 @@
+FROM python:3.10
+
+# Set the working directory in the container
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    software-properties-common \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+RUN pip install --upgrade pip
+
+RUN echo "|--> Install Python Packages" && \
+    pip install --break-system-packages -r etc/docker/requirements.txt --no-cache-dir
+
+SHELL ["source", "etc/.env"]
+SHELL ["ls"]
+CMD ["python", "src/app.py"]
