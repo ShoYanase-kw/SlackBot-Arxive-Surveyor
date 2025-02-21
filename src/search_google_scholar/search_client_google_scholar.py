@@ -5,6 +5,9 @@ import re
 from bs4 import BeautifulSoup
 import urllib.request
     
+###############################################################
+# Dataclasses for Google scholar search query and parameters
+###############################################################
 class GooglescholarURL(Enum):
     """Enum for Google scholar URL
     """    
@@ -31,7 +34,9 @@ class GooglescholarLookUpQuery:
         self.value = self.value.replace(" ", "+")
         return f"{self.base_url}{self.value}"
     
-    
+#####################
+# Search client
+#####################
 class GooglescholarSearchClient:
     def __init__(self, query_value: str, query_type: str):
         """Initialize Google scholar search client
