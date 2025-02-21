@@ -9,8 +9,8 @@ query:
   abs: ""
   cat: "cs.AI"
   all: ""
-  submittedDate_from: "20250219000000"
-  submittedDate_to: "20250220000000"
+  # submittedDate_from: "20250219000000"
+  # submittedDate_to: "20250220000000"
 
 options:
   max_results: 1000
