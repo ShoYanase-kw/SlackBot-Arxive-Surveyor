@@ -1,0 +1,7 @@
+query:
+  url: 
+    lookup_author: "https://scholar.google.com/scholar_lookup?hl=en&arxiv_id="
+    
+scraping:
+  selector:
+    citation: "#gs_res_ccl_mid > div:nth-child(1) > table > tbody > tr > td:nth-child(2) > div:nth-child(4)"
