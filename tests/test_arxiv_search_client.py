@@ -26,3 +26,12 @@ class TestArxivSearchClient(unittest.TestCase):
         client = ArxivSearchClient.from_yaml('tests/doc_test/test_search_arxiv_execute.yml')
         response = client.apply_query()
         self.assertEqual(list(response[0].keys()), ['id', 'guidislink', 'updated', 'updated_parsed', 'published', 'published_parsed', 'title', 'title_detail', 'summary', 'summary_detail', 'authors', 'author_detail', 'author', 'arxiv_comment', 'links', 'arxiv_primary_category', 'tags', 'pdf_url', 'affiliation', 'arxiv_url', 'journal_reference', 'doi'])
+        
+    def test_arxiv_search_weekly(self):
+        client = ArxivSearchClient.from_yaml('tests/doc_test/test_search_arxiv_execute.yml')
+        current_date = dt.datetime.now().date()
+        response = client.search_weekly()
+        
+        self.assertEqual(list(response[0].keys()), ['id', 'guidislink', 'updated', 'updated_parsed', 'published', 'published_parsed', 'title', 'title_detail', 'summary', 'summary_detail', 'authors', 'author_detail', 'author', 'arxiv_comment', 'links', 'arxiv_primary_category', 'tags', 'pdf_url', 'affiliation', 'arxiv_url', 'journal_reference', 'doi'])      
+        self.assertEqual(client.get_search_query_options('submittedDate_from'), (current_date - dt.timedelta(days=7)).strftime("%Y%m%d%H%M%S"))
+        self.assertEqual(client.get_search_query_options('submittedDate_to'), current_date.strftime("%Y%m%d%H%M%S"))
