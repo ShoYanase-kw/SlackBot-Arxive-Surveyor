@@ -18,15 +18,15 @@ end_required = Annotated[Optional[str], Field(today, ge="20250222", le=today)]
     
 class FilterParams(BaseModel):
     scope: Literal["range", "latest"] = "latest"
-    start: start_required
-    end: end_required
+    start: start_required = "20250222"
+    end: end_required = "20250222"
     topn: int = 10
     sortby: Literal["author-cited", "paper-cited", "date"] = "author-cited"
 
 @app.get("/")
 def read_root():
     week_today = datetime.now().strftime("%Y%W")
-    return {"Hello": week_today}
+    return {"Hello": "world"}
 
 @app.post("/items")
 def get_item(param: FilterParams):

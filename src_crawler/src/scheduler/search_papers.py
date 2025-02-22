@@ -15,7 +15,7 @@ class DateRangeSearchClient:
     """Date range search client
     """    
     def __init__(self):
-        self.yaml_app = load_from_yml("doc/params/app.yml")
+        self.yaml_app = load_from_yml("../doc/params/app.yml")
         yaml_arxiv = self.yaml_app["filepath"]["search_arxiv"]
         self.search_client_arxiv = ArxivSearchClient.from_yaml(yaml_arxiv)
         self.threading_enabled =  self.yaml_app["threading"]["enabled"]

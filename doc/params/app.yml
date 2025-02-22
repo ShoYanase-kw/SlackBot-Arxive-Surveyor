@@ -4,5 +4,4 @@ threading:
   chunk_size: 1000
 
 filepath:
-  search_arxiv: "doc/params/search_arxiv.yml"
-  search_google_scholar: "doc/params/search_google_scholar.yml"
+  search_arxiv: "../doc/params/search_arxiv.yml"

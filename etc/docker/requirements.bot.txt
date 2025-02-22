@@ -2,6 +2,8 @@ dotenv
 loguru
 pyyaml
 
+requests
+
 tqdm
 tenacity
 pandas
