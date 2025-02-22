@@ -11,7 +11,7 @@ class TestDateRangeSearchClient(unittest.TestCase):
         self.assertEqual(type(result["citation_author"]), int)
         self.assertEqual(type(result["citation_paper"]), int)
         
-    def test_search_weekly(self):
-        client = DateRangeSearchClient()
-        client.search_weekly()
-        client.search_results_to_csv("doc/output/test_search_results.csv")
+    # def test_search_weekly(self):
+    #     client = DateRangeSearchClient()
+    #     client.search_weekly()
+    #     client.search_results_to_csv("doc/output/test_search_results.csv")

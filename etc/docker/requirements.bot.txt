@@ -1,0 +1,9 @@
+dotenv
+loguru
+pyyaml
+
+tqdm
+tenacity
+pandas
+
+slack_bolt

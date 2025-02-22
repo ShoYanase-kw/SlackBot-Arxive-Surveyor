@@ -1,10 +1,30 @@
 services:
-  bot:
+  crawler:
     container_name: surveyor
     build: 
       context: .
-      dockerfile: etc/docker/Dockerfile
+      dockerfile: etc/docker/Dockerfile.crawler
     volumes:
-      - .:/app
+      - ./src-crawler:/app
+      - ./params:/app/params
+      - ./output:/app/output
+      - ./scripts:/app/scripts
+    ports:
+      - "8080:8080"
+    tty: true
+    env_file: etc/.env
+
+  bot:
+    container_name: slackbot
+    build: 
+      context: .
+      dockerfile: etc/docker/Dockerfile.bot
+    volumes:
+      - ./src-slackbot:/app
+      - ./params:/app/params
+      - ./output:/app/output
+      - ./scripts:/app/scripts
+    ports:
+      - "4000:4000"
     tty: true
     env_file: etc/.env

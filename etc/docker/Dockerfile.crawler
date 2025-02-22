@@ -16,8 +16,9 @@ COPY . /app
 RUN pip install --upgrade pip
 
 RUN echo "|--> Install Python Packages" && \
-    pip install --break-system-packages -r etc/docker/requirements.txt --no-cache-dir
+    pip install --break-system-packages -r etc/docker/requirements.crawler.txt --no-cache-dir
 
 SHELL ["source", "etc/.env"]
 SHELL ["ls"]
-CMD ["python", "src/app.py"]
+CMD ["uvicorn", "src.app:app", "--reload", "--host", "0.0.0.0", "--port", "8080"]
+# CMD ["uvicorn", "src.app:app", "--host", "0.0.0.0", "--port", "8080"]
