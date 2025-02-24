@@ -11,10 +11,9 @@ from prepare.prepare_paper_data import call_paper_data_api
 # ボットトークンとソケットモードハンドラーを使ってアプリを初期化します
 app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 
-@app.message("test")
+@app.message("今週の論文を教えて")
 def message_hello(message, say):
     response = call_paper_data_api()
-    # logger.info(response)
     
     sections = []
     for r in response["datas"][:3]:
@@ -69,7 +68,8 @@ def message_hello(message, say):
                     }
                 ]
             }
-        ]
+        ],
+        text="hello"
     )
 
 @app.action("show-more")

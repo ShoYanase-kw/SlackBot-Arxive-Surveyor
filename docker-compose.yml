@@ -6,7 +6,7 @@ services:
       dockerfile: etc/docker/Dockerfile.crawler
     volumes:
       - ./src_crawler:/app
-      - ./doc/params:/app//doc/params
+      - ./doc/params:/app/doc/params
       - ./output:/app/output
       - ./scripts:/app/scripts
     ports:
