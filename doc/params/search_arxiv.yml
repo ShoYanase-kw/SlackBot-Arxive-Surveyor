@@ -15,8 +15,8 @@ query:
   # journal reference
   all: ""
   # date range
-  submittedDate_from: "20250219000000"
-  submittedDate_to: "20250220000000"
+  submittedDate_from: ""
+  submittedDate_to: ""
   
 options:
   # max number of results
