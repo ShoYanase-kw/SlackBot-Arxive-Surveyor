@@ -1,0 +1,14 @@
+dotenv
+loguru
+pyyaml
+
+requests
+
+python-crontab
+
+tqdm
+tenacity
+pandas
+
+slack_bolt
+slack-sdk
