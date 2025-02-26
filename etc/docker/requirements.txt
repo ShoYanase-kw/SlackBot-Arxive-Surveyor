@@ -4,4 +4,6 @@ pyyaml
 
 slack_bolt
 
+beautifulsoup4
+
 arxiv==0.5.1

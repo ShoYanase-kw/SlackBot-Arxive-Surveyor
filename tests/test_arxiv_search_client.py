@@ -1,8 +1,7 @@
 import datetime as dt
-import time
 import unittest
 
-from src.search_arxiv.arxiv_search_client import ArxivSearchClient, ArxivSearchParameters, ArxivSearchQuery
+from src.search_arxiv.search_client_arxiv import ArxivSearchClient, ArxivSearchParameters, ArxivSearchQuery
 
 class TestArxivSearchClient(unittest.TestCase):
     def test_arxiv_search_query(self):
