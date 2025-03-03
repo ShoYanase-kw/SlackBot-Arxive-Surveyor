@@ -3,3 +3,6 @@ crawler:
     url: 'http://surveyor:8080/items'
     data: {"scope": "latest", "topn": 10, "sortby": "author-cited"}
     headers: {"accept": "application/json", "content-type": "application/json"}
+
+  weekly:
+    url: 'http://surveyor:8080/execute/weekly'

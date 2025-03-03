@@ -24,6 +24,7 @@ services:
       - ./doc/params:/app/doc/params
       - ./output:/app/output
       - ./scripts:/app/scripts
+      - ./etc:/app/etc
     ports:
       - "4000:4000"
     tty: true

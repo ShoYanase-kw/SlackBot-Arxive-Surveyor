@@ -25,8 +25,7 @@ class MyRetryHandler(RetryHandler):
 
 
 
-def send_webhook(text: str, blocks: list):
-    url = os.getenv("SLACK_WEBHOOK_URL")
+def send_webhook(text: str, blocks: list, url: str = os.getenv("SLACK_WEBHOOK_URL")):
     logger.debug(f"SLACK_WEBHOOK_URL: {url}")
     
     webhook = WebhookClient(
@@ -44,7 +43,7 @@ def send_webhook(text: str, blocks: list):
     assert response.status_code == 200
     assert response.body == "ok"
     
-def send_weekly_report():
+def send_weekly_report(url: str = os.getenv("SLACK_WEBHOOK_URL")):
     response = call_paper_data_api()
     
     sections = []
@@ -100,6 +99,7 @@ def send_weekly_report():
                 ]
             }
         ],
+        url=url
     )
     
     
@@ -112,6 +112,13 @@ def send_weekly_report():
 #     cron.write()
     
 if __name__ == "__main__":
-    send_weekly_report()
+    # コマンドライン引数を取得
+    import sys
+    args = sys.argv
+    logger.debug(f"args: {args}")
+    if len(args) > 1:
+        send_weekly_report(args[1])
+    else:
+        send_weekly_report()
     
     
